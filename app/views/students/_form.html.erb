@@ -1,0 +1,17 @@
+<%= render 'shared/error_messages', error_object: @student %>
+
+<div>
+  <%= form_for [@classroom, @student] do |f| %>
+    <%=f.label :first_name %>
+    <%= f.text_field :first_name %>
+    </br>
+    <%=f.label :last_name %>
+    <%= f.text_field :last_name %>
+    </br>
+    <%=f.label :classroom %>
+    <%= f.collection_select(:classroom_id, @classrooms, :id, :name) %>
+    </br>
+    <%= f.submit 'Update Student Information', class: 'btn btn-primary' %>
+
+  <% end %>
+</div>

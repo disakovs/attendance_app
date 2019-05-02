@@ -1,0 +1,11 @@
+<%= render 'shared/content_title', title: 'All Students' %>
+<ul>
+  <% @students.each do |student| %>
+    <li><%= student.full_name %> | <%= link_to 'edit', edit_classroom_student_path(student.classroom_id, student) %> | 
+      <%= link_to 'delete',  classroom_student_path(student.classroom_id, student),
+        data: { confirm: 'Are you sure?' }, method: :delete %> | <%= link_to "#{student.classroom.name}", classroom_path(student.classroom) %>
+    </li>
+  <% end %>
+</ul>
+
+

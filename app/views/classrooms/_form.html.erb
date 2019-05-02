@@ -1,0 +1,17 @@
+<%= render 'shared/error_messages', error_object: @classroom %>
+
+<div>
+  <%= form_for @classroom do |f| %>
+    <%=f.label :name %>
+    <%= f.text_field :name %>
+    </br>
+    <%=f.label 'Age Range' %>
+    <%= f.text_field :age_limit %>
+    </br>
+    <%=f.label :type %>
+    <%= f.text_field :classroom_type %>
+    </br>
+    <%= f.submit(@classroom.new_record? ? 'Create New Class' : 'Update Class', class: 'btn btn-primary') %>
+
+  <% end %>
+</div>

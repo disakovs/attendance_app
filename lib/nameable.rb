@@ -1,0 +1,10 @@
+module Nameable
+  extend ActiveSupport::Concern
+  
+  included do
+  end
+  
+  def full_name
+    self.first_name + ' ' + self.last_name
+  end
+end
