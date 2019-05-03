@@ -3,7 +3,7 @@ class StudentsController < ApplicationController
   before_action :require_user
 
   def index
-    @students = Student.all
+    @students = Student.all.sort_by{|s| s.full_name}
   end
 
   def create
