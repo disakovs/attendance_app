@@ -25,10 +25,9 @@
       </div>
     </li>
   <% end %>
-  <li>
-    <%= link_to 'Student Master List', allstudents_path %>
-  </li>
+
   <% if logged_in? %>
+    <li><%= link_to 'Student Master List', allstudents_path %></li>
     <li><%= link_to "Log Out", logout_path %></li>
   <% end %>
 </ul>

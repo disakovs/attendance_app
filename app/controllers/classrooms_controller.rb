@@ -4,7 +4,8 @@ class ClassroomsController < ApplicationController
   before_action :require_admin, except: [:index, :show]
 
   def index
-    @classrooms = Classroom.all
+    @parkour_classes = Classroom.all.select{|c| c.classroom_type === 'parkour'}
+    @gymnastics_classes = Classroom.all.select{|c| c.classroom_type === 'gymnastics'}
   end
   
   def new
@@ -13,7 +14,7 @@ class ClassroomsController < ApplicationController
   
   def show
     @student = Student.new
-    # @attendance = Attendance.new
+    @attendance = Attendance.new
   end
   
   def create

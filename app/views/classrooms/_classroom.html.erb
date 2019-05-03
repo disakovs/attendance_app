@@ -1,0 +1,12 @@
+<li><%= classroom.name %> | <%= classroom.age_limit %> 
+  <% if admin? %>
+  | 
+  <%= link_to 'edit', edit_classroom_path(classroom) %> 
+  | 
+  <%= link_to 'delete',  classroom_path(classroom),
+  data: { confirm: 'Are you sure?' }, method: :delete %> 
+  <% end %>
+  |
+  <%= link_to 'go to classroom', classroom_path(classroom) %>  
+</li>
+

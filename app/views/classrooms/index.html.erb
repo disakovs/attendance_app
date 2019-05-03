@@ -1,19 +1,15 @@
 <%= render 'shared/content_title', title: "Classes" %>
 
-<ul>
-  <% if admin? %>
-    <% @classrooms.each do |classroom| %>
-      <li><%= classroom.name %> | <%= link_to 'edit', edit_classroom_path(classroom) %> | 
-        <%= link_to 'delete',  classroom_path(classroom),
-        data: { confirm: 'Are you sure?' }, method: :delete %> |
-        <%= link_to 'go to classroom', classroom_path(classroom) %>  
-      </li>
-    <% end %>
-  <% else %>
-    <% @classrooms.each do |classroom| %>
-      <li><%= classroom.name %> | Ages <%= classroom.age_limit %> |
-      <%= link_to 'take attendance', classroom_path(classroom) %></li>
-    <% end %>
-  <% end %>
-</ul>
 
+<h5>Parkour Classes:</h5>
+  <ul>
+    <% @parkour_classes.each do |classroom| %>
+      <%= render 'classroom', classroom: classroom %>
+    <% end %>
+  </ul>
+<h5>Gymnastics Classes:</h5>
+  <ul>
+    <% @gymnastics_classes.each do |classroom| %>
+      <%= render 'classroom', classroom: classroom %>
+    <% end %>
+  </ul>

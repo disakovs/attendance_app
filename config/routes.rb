@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   
   resources :teachers
   
-  
+  resources :attendances, except: [:destroy]
   
   get 'register', to: 'users#new'
   

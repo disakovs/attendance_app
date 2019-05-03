@@ -29,19 +29,21 @@
   <% end %>
 </div>
 
-<% if false %>
 <div>
+   <h5>Take Attendance:</h5> 
   <%= form_for @attendance do |f| %>
+  <div style="visibility:hidden;width:0;height:0">
     <%=f.label "Class Name" %>
-    <%= f.text_field :classroom_name, placeholder: @classroom.name %>
+    <%= f.text_field :classroom_id, value: @classroom.id %>
     </br>
-    <%=f.label :teacher %>
+  </div>
+    <%=f.label 'Who is taking attendance:' %>
     <%= f.collection_select(:teacher_id, Teacher.all, :id, :full_name) %>
     </br>
     <br/>
     <div>
       <%= f.label 'Students' %>
-      <%= f.collection_check_boxes :student_ids, @classroom.students, :id, :name do |cb| %>
+      <%= f.collection_check_boxes :student_ids, @classroom.students, :id, :full_name do |cb| %>
         <% cb.label(class: 'checkbox inline') {cb.check_box(class: 'checkbox') + cb.text} %>
       <% end %>
     </div>
@@ -50,4 +52,3 @@
 
   <% end %>
 </div>
-<% end %>
