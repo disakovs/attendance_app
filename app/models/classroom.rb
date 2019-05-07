@@ -5,25 +5,13 @@ class Classroom < ApplicationRecord
 
   has_many :students
   has_many :attendances
-
-  # include Slugable
-  # 
-  # has_many :posts
-  # has_many :comments
-  # has_many :votes
-  # 
-  # has_secure_password validations: false
-  # 
-  # validates :username, presence: true, uniqueness: true
-  # validates :password, presence: true, on: :create, length: {minimum: 3}
-  # 
-  # sluggable_column :username
-  # 
-  # def admin?
-  #   self.role == 'admin'
-  # end
-  # 
-  # def moderator?
-  #  self.role == 'moderator'
-  # end
+  
+  def upper_age_limit
+    n = self.age_limit
+    n.gsub('+', '')[/[\d]+$/].to_i
+  end
+  
+  def active_students
+    self.students.select(&:active_student?)
+  end
 end
