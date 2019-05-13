@@ -9,7 +9,7 @@
     <%= f.password_field :password %>
     </br>
     <%=f.label :role %>
-    <%= f.text_field :role %>
+    <%= f.select :role, ['teacher', 'admin'] %>
     </br>
 
     <%= f.submit(@user.new_record? ? 'Register' : 'Update Profile', class: 'btn btn-primary') %>

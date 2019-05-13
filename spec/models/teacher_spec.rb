@@ -2,9 +2,7 @@ require 'rails_helper'
 require 'spec_helper'
 
 RSpec.describe Teacher do
-  it "saves itself" do
-    teacher = Teacher.new(first_name: "Bob", last_name: "Bobson")
-    teacher.save
-    expect(Teacher.first).to eq(teacher)
-  end
+  it {should validate_presence_of(:first_name)}
+  it {should validate_presence_of(:last_name)}
+  it {should have_many(:attendances)}
 end

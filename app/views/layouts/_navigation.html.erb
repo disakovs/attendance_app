@@ -1,6 +1,9 @@
 <ul>
   <% if admin? %>
     <li>
+      <%= link_to 'Manage Users', users_path %>
+    </li>
+    <li>
       <%= link_to 'Add a Class', new_classroom_path %>
     </li>
     <li>

@@ -3,9 +3,10 @@ Rails.application.routes.draw do
   root 'classrooms#index'
   
   get 'allstudents', to: 'students#index'
+  get 'allstudents/search', to: 'students#search'
   
   resources :classrooms do
-    resources :students, except: [:index]
+    resources :students, except: [:index] 
   end
   
   resources :teachers
@@ -18,7 +19,7 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
   
-  resources :users, except: [:show, :index]
+  resources :users, only: [:index, :create, :edit, :update]
   
   #   root 'posts#index'
   # 

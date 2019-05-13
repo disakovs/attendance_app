@@ -1,6 +1,6 @@
 <%= render 'shared/content_title', title: 'Please log in' %>
 
-<div class='well'>
+<div>
   <%= form_tag '/login' do %>
     <%=label_tag :username %>
     <%= text_field_tag :username, params[:username] || '' %>
@@ -9,6 +9,5 @@
     <%= password_field_tag :password, params[:password] || '' %>
     </br>
     <%= submit_tag 'Login', class: 'btn btn-success' %>
-
   <% end %>
 </div>

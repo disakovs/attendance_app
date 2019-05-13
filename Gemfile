@@ -47,6 +47,8 @@ group :development, :test do
   gem 'sqlite3', '~> 1.3', '< 1.4'
   gem 'pry'
   gem 'rspec-rails'
+  gem 'fabrication'
+  gem 'faker'
 end
 
 group :test do

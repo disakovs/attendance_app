@@ -32,11 +32,7 @@
 <div>
    <h5>Take Attendance:</h5> 
   <%= form_for @attendance do |f| %>
-  <div style="visibility:hidden;width:0;height:0">
-    <%=f.label "Class Name" %>
-    <%= f.text_field :classroom_id, value: @classroom.id %>
-    </br>
-  </div>
+    <%=f.hidden_field :classroom_id, value: @classroom.id %>
     <%=f.label 'Who is taking attendance:' %>
     <%= f.collection_select(:teacher_id, Teacher.all, :id, :full_name) %>
     </br>

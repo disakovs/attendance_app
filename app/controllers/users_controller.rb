@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
-  # before_action :set_user, only: [:show, :edit, :update]
-  # before_action :require_same_user, only: [:edit, :update]
-
-  def new
+  before_action :set_user, only: [:edit, :update]
+  before_action :require_admin
+  
+  def index
+    @users = User.all
     @user = User.new
   end
   
@@ -10,11 +11,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     
     if @user.save
-      session[:user_id] = @user.id
-      flash[:notice] = 'You have registered a new #{@user.role}.'
+      flash[:notice] = "You have registered a new #{@user.role}."
       redirect_to root_path
     else
-      render :new
+      render :index
     end
   end
   
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   
   def update
     if @user.update(user_params)
-      flash[:notice] = 'Your profile is updated'
+      flash[:notice] = "#{@user.username} profile is updated"
       redirect_to root_path
     else
       render :edit
@@ -38,13 +38,6 @@ class UsersController < ApplicationController
   end
   
   def set_user
-    @user = User.find_by(params[:id])
-  end
-  
-  def require_same_user
-    if current_user != @user
-      flash[:error] = 'You do not have access'
-      redirect_to root_path
-    end
+    @user = User.find(params[:id])
   end
 end

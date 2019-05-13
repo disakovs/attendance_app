@@ -1,5 +1,5 @@
 class Student < ApplicationRecord
-  ACTIVE = 45
+  ACTIVE = 45.days.ago
 
   include Nameable
   
@@ -10,8 +10,18 @@ class Student < ApplicationRecord
   has_many :student_attendances
   has_many :attendances, through: :student_attendances
   
-  
   def active_student?
-    self.attendances.any? {|a| a.created_at > ACTIVE.days.ago }
-  end 
+    new_student? || recently_attended?
+  end
+  
+  private
+    
+  def recently_attended?
+    attendances.any? {|a| a.created_at > ACTIVE }
+  end
+  
+  def new_student?
+    attendances.empty?
+  end
 end
+
