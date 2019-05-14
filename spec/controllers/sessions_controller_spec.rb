@@ -42,6 +42,7 @@ RSpec.describe SessionsController do
       end
     end
   end
+  
   describe "DELETE destroy" do
     before do
       post :create, params: {password: 'password', username: user_test.username}

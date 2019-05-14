@@ -8,7 +8,6 @@
     <%=f.label 'Last Name' %>
     <%= f.text_field :last_name %>
     </br>
-    <%= f.submit(@teacher.new_record? ? 'Add New Teacher' : 'Update Name', class: 'btn btn-primary') %>
-
+    <%= f.submit(@teacher.new_record? ? 'Add New Teacher' : 'Update Name') %>
   <% end %>
 </div>

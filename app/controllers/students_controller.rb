@@ -25,7 +25,6 @@ class StudentsController < ApplicationController
   end
   
   def update
-    
     if @student.update(student_params)
       flash.now[:notice] = "You successfully updated the student's information"
       redirect_to classroom_path(params[:classroom_id])
@@ -40,7 +39,6 @@ class StudentsController < ApplicationController
     flash[:notice] = "You deleted #{@student.full_name}"
     redirect_back(fallback_location: root_path)
   end
-  
   
   private
   

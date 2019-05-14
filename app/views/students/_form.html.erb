@@ -11,7 +11,7 @@
     <%=f.label :classroom %>
     <%= f.collection_select(:classroom_id, @classrooms, :id, :name) %>
     </br>
-    <%= f.submit 'Update Student Information', class: 'btn btn-primary' %>
+    <%= f.submit 'Update Student Information' %>
 
   <% end %>
 </div>

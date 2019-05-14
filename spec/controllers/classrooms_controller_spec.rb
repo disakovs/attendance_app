@@ -26,7 +26,6 @@ RSpec.describe ClassroomsController do
   end
 
   describe "GET index" do
-
     let!(:gymnastics_class) { Classroom.create(name: 'Gymnastics', age_limit: '2-3', classroom_type: "gymnastics") }
     let!(:parkour_class) { Classroom.create(name: 'Parkour', age_limit: '2-3', classroom_type: "parkour") }
     

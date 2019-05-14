@@ -1,9 +1,10 @@
 <ul>
-<% @teachers.each do |teacher| %>
-<li><%= teacher.full_name %> | <%= link_to 'edit', edit_teacher_path(teacher) %> | 
-<%= link_to 'delete',  teacher_path(teacher),
-    data: { confirm: 'Are you sure?' }, method: :delete %>
-</li>
-<% end %>
+  <% @teachers.each do |teacher| %>
+    <li><%= teacher.full_name %> | <%= link_to 'edit', edit_teacher_path(teacher) %> | 
+    <%= link_to 'delete',  teacher_path(teacher),
+        data: { confirm: 'Are you sure?' }, method: :delete %>
+    </li>
+  <% end %>
 </ul>
+
 <%= link_to 'Add a Teacher', new_teacher_path %>

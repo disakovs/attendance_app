@@ -9,9 +9,8 @@
     <%= f.text_field :age_limit %>
     </br>
     <%=f.label :type %>
-    <%= f.select :classroom_type, ['gymnastics', 'parkour'] %>
+    <%=f.select :classroom_type, ['gymnastics', 'parkour'] %>
     </br>
-    <%= f.submit(@classroom.new_record? ? 'Create New Class' : 'Update Class', class: 'btn btn-primary') %>
-
+    <%=f.submit(@classroom.new_record? ? 'Create New Class' : 'Update Class', class: 'btn btn-primary') %>
   <% end %>
 </div>

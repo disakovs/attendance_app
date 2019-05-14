@@ -32,7 +32,6 @@ class ClassroomsController < ApplicationController
   end
   
   def update
-    
     if @classroom.update(classroom_params)
       flash.now[:notice] = 'You successfully updated the class'
       redirect_to classrooms_path
@@ -47,7 +46,6 @@ class ClassroomsController < ApplicationController
     flash[:notice] = 'You deleted this class'
     redirect_to classrooms_path
   end
-  
   
   private
   

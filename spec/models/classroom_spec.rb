@@ -8,7 +8,6 @@ RSpec.describe Classroom do
   it { should have_many(:students)}
   it { should have_many(:attendances)}
   
-  
   describe "#upper_age_limit" do
     let (:classroom1) {Classroom.create(name: 'Little Kangaroos', age_limit: '4-5', classroom_type: 'gymnastics')}
     let (:classroom2) {Classroom.create(name: 'Little Rabbits', age_limit: '18+', classroom_type: 'gymnastics')}
