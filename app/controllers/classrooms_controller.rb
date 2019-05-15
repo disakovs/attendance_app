@@ -1,5 +1,5 @@
 class ClassroomsController < ApplicationController
-  before_action :set_classroom, only: [:show, :edit, :update]
+  before_action :set_classroom, only: [:show, :edit, :update, :destroy]
   before_action :require_user
   before_action :require_admin, except: [:index, :show]
 
@@ -41,9 +41,13 @@ class ClassroomsController < ApplicationController
   end
   
   def destroy
-    @classroom = Classroom.find(params[:id])
-    @classroom.destroy
-    flash[:notice] = 'You deleted this class'
+    if @classroom.deleteable?
+      @classroom.destroy
+      flash[:notice] = 'You deleted this class'
+    else
+      flash[:notice] = "You may edit but not delete the #{@classroom.name} Class"
+    end
+    
     redirect_to classrooms_path
   end
   

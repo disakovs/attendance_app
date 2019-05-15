@@ -20,4 +20,12 @@ class Classroom < ApplicationRecord
       errors.add(:age_limit, "error.  Please enter valid age limit that includes numbers, ie 6-10 or 18+")
     end
   end
+  
+  def deleteable?
+    students.empty? && attendances.empty?
+  end
+  
+  def deprecated_classroom?
+    false
+  end
 end
